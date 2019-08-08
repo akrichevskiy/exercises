@@ -11,25 +11,25 @@ public class ReverseLinkedList {
     }
 
     public ListNode reverseList(ListNode head) {
-        if (head == null ||  head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         } else {
             ListNode newHead = reverseList(head.next);
-
-            if (newHead.next == null) {
-                head.next = null;
-                newHead.next = head;
-            } else {
-                ListNode newHeadCopy = new ListNode(newHead.val);
-                newHeadCopy.next = newHead.next;
-
-                while (newHeadCopy.next != null) {
-                    newHeadCopy = newHeadCopy.next;
-                }
-                head.next = null;
-                newHeadCopy.next = head;
-            }
+            head.next.next = head;
+            head.next = null;
             return newHead;
         }
+    }
+
+    public ListNode reverseListIterative(ListNode head) {
+        ListNode cur = head;
+        ListNode prev = null;
+        while (cur != null ) {
+            ListNode tmp = prev;
+            prev = cur;
+            cur = cur.next;
+            prev.next = tmp;
+        }
+        return prev;
     }
 }

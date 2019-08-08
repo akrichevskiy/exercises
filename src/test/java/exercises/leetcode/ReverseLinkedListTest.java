@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 
 public class ReverseLinkedListTest {
+    private ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
 
     private ReverseLinkedList.ListNode create(List<Integer> input) {
         ReverseLinkedList.ListNode head = null;
@@ -44,29 +45,45 @@ public class ReverseLinkedListTest {
 
 
     @Test
-    public void testRecursiveThreeElements() {
-        ReverseLinkedList.ListNode first = create(Arrays.asList(1, 2, 3));
+    public void testRecursiveFourElements() {
+        ReverseLinkedList.ListNode head = create(Arrays.asList(1, 2, 3, 4));
 
-        ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
-        ReverseLinkedList.ListNode result = reverseLinkedList.reverseList(first);
+        ReverseLinkedList.ListNode result = reverseLinkedList.reverseList(head);
+        print(result);
+        assertEquals(Arrays.asList(4, 3, 2, 1), toList(result));
+    }
+
+    @Test
+    public void testRecursiveThreeElements() {
+        ReverseLinkedList.ListNode head = create(Arrays.asList(1, 2, 3));
+
+        ReverseLinkedList.ListNode result = reverseLinkedList.reverseList(head);
         print(result);
         assertEquals(Arrays.asList(3, 2, 1), toList(result));
-        assertEquals(3, result.val);
-        assertEquals(2, result.next.val);
-        assertEquals(1, result.next.next.val);
     }
 
     @Test
     public void testRecursiveTwoElements() {
-        ReverseLinkedList.ListNode first = new ReverseLinkedList.ListNode(1);
-        ReverseLinkedList.ListNode second = new ReverseLinkedList.ListNode(2);
-        first.next = second;
+        ReverseLinkedList.ListNode head = create(Arrays.asList(1, 2));
 
-        ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
-        ReverseLinkedList.ListNode result = reverseLinkedList.reverseList(first);
+        ReverseLinkedList.ListNode result = reverseLinkedList.reverseList(head);
         print(result);
         assertEquals(Arrays.asList(2, 1), toList(result));
+    }
 
+    @Test
+    public void testIterativeTwoElements() {
+        ReverseLinkedList.ListNode head = create(Arrays.asList(1, 2));
+        ReverseLinkedList.ListNode result = reverseLinkedList.reverseListIterative(head);
+        print(result);
+        assertEquals(Arrays.asList(2, 1), toList(result));
+    }
 
+    @Test
+    public void testIterativeFourElements() {
+        ReverseLinkedList.ListNode head = create(Arrays.asList(1, 2, 3, 4));
+        ReverseLinkedList.ListNode result = reverseLinkedList.reverseListIterative(head);
+        print(result);
+        assertEquals(Arrays.asList(4, 3, 2, 1), toList(result));
     }
 }
