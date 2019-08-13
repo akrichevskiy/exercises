@@ -28,7 +28,7 @@ public class StringPerms {
         } else {
             for (int i = 0; i < s.length(); i++) {
                 char c = s.charAt(i);
-                String rem = s.substring(0, i) + s.substring(i + 1, s.length());
+                String rem = s.substring(0, i) + s.substring(i + 1);
                 for (String s1 : perms2(rem)) {
                     result.add(c + s1);
                 }
