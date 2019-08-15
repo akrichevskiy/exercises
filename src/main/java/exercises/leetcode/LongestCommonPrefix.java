@@ -12,22 +12,17 @@ public class LongestCommonPrefix {
                 }
             }
             String prefix = "";
-            StringBuilder sb  = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < shortestString; i++) {
-                boolean startsFromPrefix = false;
                 sb.append(strs[0].charAt(i));
 
                 for (String s : strs) {
-                    if (s.startsWith(sb.toString())) {
-                        startsFromPrefix = true;
-                    } else {
+                    if (!s.startsWith(sb.toString())) {
                         return prefix;
                     }
 
                 }
-                if (startsFromPrefix) {
-                    prefix = sb.toString();
-                }
+                prefix = sb.toString();
             }
             return prefix;
         }
