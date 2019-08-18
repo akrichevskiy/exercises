@@ -1,6 +1,5 @@
 package exercises.hackerrank;
 
-import exercises.hackerrank.FormingAMagicSquare;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -15,6 +14,18 @@ public class FormingAMagicSquareTest {
     private FormingAMagicSquare formingAMagicSquare = new FormingAMagicSquare();
 
 //    @Test
+    public void testPermsWithIndex() {
+        Set<List<Integer>> result = formingAMagicSquare.permsWithIndex(Arrays.asList(1, 2, 3));
+        for (List<Integer> r : result) {
+            for (int i = 0; i < r.size(); i++) {
+                System.out.print(r.get(i) + ",");
+            }
+            System.out.println();
+        }
+
+    }
+
+    //    @Test
     public void testPerms() {
         Set<List<Integer>> result = formingAMagicSquare.perms(Arrays.asList(1, 2, 3));
         for (List<Integer> r : result) {
@@ -25,7 +36,7 @@ public class FormingAMagicSquareTest {
         }
     }
 
-        @Test
+    @Test
     public void test() {
         int[][] s = new int[][]{
                 {4, 8, 2},

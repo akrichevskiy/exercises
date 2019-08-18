@@ -43,6 +43,33 @@ public class FormingAMagicSquare {
         return result;
     }
 
+    public Set<List<Integer>> permsWithIndex(List<Integer> in) {
+        return permsInternal(in, 0);
+    }
+
+    private Set<List<Integer>> permsInternal(List<Integer> in, int idx) {
+        Set<List<Integer>> result = new HashSet<>();
+        if (idx == in.size()) {
+            result.add(in);
+            return result;
+        }  else {
+            result.add(in);
+            for (int i = idx; i < in.size(); i++) {
+                int value = in.get(i);
+                for (int j = i + 1; j < in.size(); j++) {
+                    List<Integer> copy = new ArrayList<>(in);
+                    int tmp = copy.get(j);
+                    copy.set(i, tmp);
+                    copy.set(j, value);
+                    result.add(copy);
+                    Set<List<Integer>> res = permsInternal(copy, i + 1);
+                    result.addAll(res);
+                }
+            }
+            return result;
+        }
+    }
+
     private void printSquare(int[][] s) {
         System.out.println("---");
         for (int i = 0; i < 3; i++) {
