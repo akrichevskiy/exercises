@@ -2,6 +2,7 @@ package exercises.ctci;
 
 import static org.junit.Assert.*;
 
+import exercises.ctci.ch1.StringBuilder;
 import org.junit.Test;
 
 public class StringBuilderTest {

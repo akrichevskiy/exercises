@@ -2,6 +2,7 @@ package exercises.ctci;
 
 import static org.junit.Assert.*;
 
+import exercises.ctci.ch1.HashMap;
 import org.junit.Test;
 
 public class HashMapTest {

@@ -1,4 +1,4 @@
-package exercises.ctci;
+package exercises.ctci.ch1;
 
 public class ArrayList {
   private int[] storage;

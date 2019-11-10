@@ -1,4 +1,4 @@
-package exercises.ctci;
+package exercises.ctci.ch1;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
