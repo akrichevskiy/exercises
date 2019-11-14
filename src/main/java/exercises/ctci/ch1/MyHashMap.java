@@ -3,7 +3,7 @@ package exercises.ctci.ch1;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class HashMap<K, V> {
+public class MyHashMap<K, V> {
 
   private static class Entry<K, V> {
     private K key;
@@ -25,7 +25,7 @@ public class HashMap<K, V> {
 
   private java.util.ArrayList<LinkedList<Entry<K, V>>> data;
 
-  public HashMap() {
+  public MyHashMap() {
     this.data = new ArrayList<>(10);
     for (int i = 0; i < 10; i++) {
       data.add(new LinkedList<>());
@@ -35,13 +35,13 @@ public class HashMap<K, V> {
   public void put(K key, V value) {
     int hashCode = key.hashCode() % 10;
     LinkedList chain = data.get(hashCode);
-    chain.add(new HashMap.Entry(key, value));
+    chain.add(new MyHashMap.Entry(key, value));
   }
 
   public V get(K key) {
     int hashCode = key.hashCode() % 10;
     LinkedList<Entry<K, V>> chain = data.get(hashCode);
-    for (HashMap.Entry<K, V> entry : chain) {
+    for (MyHashMap.Entry<K, V> entry : chain) {
       if (entry.key.equals(key)) {
         return entry.value;
       }

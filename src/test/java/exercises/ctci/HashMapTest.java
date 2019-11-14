@@ -2,14 +2,14 @@ package exercises.ctci;
 
 import static org.junit.Assert.*;
 
-import exercises.ctci.ch1.HashMap;
+import exercises.ctci.ch1.MyHashMap;
 import org.junit.Test;
 
 public class HashMapTest {
 
     @Test
     public void test () {
-        HashMap hashMap = new HashMap<String, String>();
+        MyHashMap hashMap = new MyHashMap<String, String>();
 
         assertNull(hashMap.get("key"));
 
