@@ -14,7 +14,7 @@ public class PalindromePermutations {
                 if(map.containsKey(c)) {
                     int count = map.get(c);
                     map.put(c, ++count);
-                } else {9
+                } else {
                     map.put(c, 1);
                 }
             }
