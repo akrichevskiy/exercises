@@ -5,28 +5,18 @@ public class StringCompression {
         if(in.length() < 3) {
             return in;
         }
-        int start,end,len;
-        StringBuffer stringBuffer = new StringBuffer();
+        int len;
+        StringBuffer compressedString = new StringBuffer();
 
-        start = 0;
-        end = 1;
-        len = 1;
-        while(end < in.length()) {
-            if(in.charAt(start) != in.charAt(end)) {
-                stringBuffer.append(in.charAt(start)).append(len);
-                len=1;
-                start = end;
-            } else {
-                len++;
+        len = 0;
+        for (int i = 0; i < in.length(); i++){
+            len++;
+            if(i + 1 >= in.length() || in.charAt(i) != in.charAt(i+1) ) {
+                compressedString.append(in.charAt(i)).append(len);
+                len=0;
             }
-            end++;
         }
-        stringBuffer.append(in.charAt(end-1)).append(len);
-        if(stringBuffer.toString().length() >= in.length()) {
-            return in;
-        } else {
-            return stringBuffer.toString();
-        }
+        return compressedString.toString().length() >= in.length() ? in : compressedString.toString();
     }
 
 }

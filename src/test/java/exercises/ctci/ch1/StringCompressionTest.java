@@ -12,5 +12,6 @@ public class StringCompressionTest {
     assertEquals("ab", stringCompression.compress("ab"));
     assertEquals("aab", stringCompression.compress("aab"));
     assertEquals("a3b3", stringCompression.compress("aaabbb"));
+    assertEquals("a2b1c5a3", stringCompression.compress("aabcccccaaa"));
   }
 }
