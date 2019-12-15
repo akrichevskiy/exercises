@@ -41,4 +41,24 @@ public class SumListsTest {
 
         assertEquals(Arrays.asList(7,1,6), result);
     }
+
+    @Test
+    public void test4(){
+        LinkedListNode l1 = LinkedListNode.create(Arrays.asList(7,1,6));
+        LinkedListNode l2 = null;
+
+        List<Integer> result = LinkedListNode.toList(sumLists.sumRecursive(l1,l2));
+
+        assertEquals(Arrays.asList(7,1,6), result);
+    }
+
+    @Test
+    public void test5(){
+        LinkedListNode l1 = LinkedListNode.create(Arrays.asList(7,1,6));
+        LinkedListNode l2 = LinkedListNode.create(Arrays.asList(9,2));
+
+        List<Integer> result = LinkedListNode.toList(sumLists.sumRecursive(l1,l2));
+
+        assertEquals(Arrays.asList(6,4,6), result);
+    }
 }

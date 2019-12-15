@@ -30,4 +30,29 @@ public class SumLists {
         return head.getNext();
     }
 
+    public LinkedListNode sumRecursive(LinkedListNode l1, LinkedListNode l2) {
+        return sumRecursive(l1,l2,0);
+    }
+
+    private LinkedListNode sumRecursive(LinkedListNode l1, LinkedListNode l2, int curry) {
+        if(l1 == null && l2 == null) {
+            return null;
+        } else if (l1 == null) {
+            int val  = l2.getVal() + curry;
+            int newVal = val % 10;
+            curry = val / 10;
+            return new LinkedListNode(newVal, sumRecursive(null, l2.getNext(), curry));
+        } else if (l2== null) {
+            int val  = l1.getVal() + curry;
+            int newVal = val % 10;
+            curry = val / 10;
+            return new LinkedListNode(newVal, sumRecursive(l1.getNext(), null, curry));
+        } else {
+            int val  = l1.getVal() + l2.getVal() + curry;
+            int newVal = val % 10;
+            curry = val / 10;
+            return new LinkedListNode(newVal, sumRecursive(l1.getNext(), l2.getNext(), curry));
+        }
+    }
+
 }
