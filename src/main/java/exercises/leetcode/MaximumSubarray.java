@@ -1,5 +1,5 @@
 package exercises.leetcode;
-// #54
+// #53
 // Kadane's algorithm
 public class MaximumSubarray {
     public int maxSubArray(int[] nums) {
