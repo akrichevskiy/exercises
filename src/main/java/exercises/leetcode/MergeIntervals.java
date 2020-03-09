@@ -15,13 +15,20 @@ public class MergeIntervals {
                 }
                 intervalList.add(interval);
             }
+            boolean resetList = false;
             for(int i = 0; i < intervalList.size(); i++) {
+                if(resetList) {
+                    i--;
+                    resetList = false;
+                }
                 for(int j = i +1; j < intervalList.size(); j++) {
                     List<Integer>  first = intervalList.get(i);
                     List<Integer> second = intervalList.get(j);
                     int a = first.get(0), b = first.get(1);
                     int c = second.get(0), d = second.get(1);
-                    if ( (a<= c&& c <= b) || (a<=d && d <= b)) {
+                    if ( ((a<= c&& c <= b) || (a<=d && d <= b))
+                            || ((c <=a) && (a <=d) && (c <=b) && (b <=d))
+                    ) {
                         int newStart = Math.min(a,c);
                         int newEnd = Math.max(b,d);
                         List<Integer> newInterval = new LinkedList();
@@ -29,6 +36,7 @@ public class MergeIntervals {
                         newInterval.add(newEnd);
                         intervalList.set(i,newInterval);
                         intervalList.remove(j);
+                        resetList = true;
                     }
                 }
             }
